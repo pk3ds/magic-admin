@@ -21,6 +21,8 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    protected static ?string $navigationGroup = 'User Management';
+
     protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
@@ -41,6 +43,7 @@ class UserResource extends Resource
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                     ->visible(fn (Component $livewire): bool => $livewire instanceof Pages\CreateUser),
                 Forms\Components\DatePicker::make('email_verified_at'),
+                //BelongsToManyMultiSelect::make('roles')->relationship('roles', 'name')
             ]);
     }
 

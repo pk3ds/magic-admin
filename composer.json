@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "althinect/filament-spatie-roles-permissions": "^1.0",
         "doctrine/dbal": "^3.3",
         "filament/filament": "^2.15",
         "guzzlehttp/guzzle": "^7.2",

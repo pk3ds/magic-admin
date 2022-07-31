@@ -21,7 +21,9 @@ class StaffResource extends Resource
 {
     protected static ?string $model = Staff::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+
+    protected static ?string $navigationGroup = 'Staff Management';
 
     public static function form(Form $form): Form
     {
@@ -30,16 +32,32 @@ class StaffResource extends Resource
                 //
                 Card::make()
                 ->schema([
-                    TextInput::make('name')->required(),
-                    TextInput::make('email')->required(),
-                    TextInput::make('salary')->required(),
-                    TextInput::make('nric')->required(),
-                    TextInput::make('address')->required(),
-                    TextInput::make('notel')->required(),
-                    TextInput::make('position')->required(),
-                    DatePicker::make('date_hired')->required(),
+                    TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('email')
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('salary')
+                        ->required()
+                        ->maxLength(50),
+                    TextInput::make('nric')
+                        ->required()
+                        ->maxLength(14),
+                    TextInput::make('address')
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('notel')
+                        ->required()
+                        ->maxLength(20),
+                    TextInput::make('position')
+                        ->required()
+                        ->maxLength(255),
+                    DatePicker::make('date_hired')
+                        ->required(),
                     Select::make('user_id')
-                        ->relationship('User', 'name')->required(),
+                        ->relationship('User', 'name')
+                        ->required(),
                 ])
             ]);
     }
